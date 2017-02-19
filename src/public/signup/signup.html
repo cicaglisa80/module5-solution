@@ -5,7 +5,7 @@
     <label>E-mail: <input class="form-control"  type="email" ng-model="user.email" required /></label><br />
     <label>Phone: <input class="form-control"  type="text" ng-model="user.phone" required /></label><br />
     <label>Menu Number: <input class="form-control"  type="text" ng-model="user.menunumber" /></label><br />
-    <input type="button" class="btn btn-primary" ng-click="resetForm()" value="Reset" />
-    <input type="submit" class="btn btn-primary" ng-click="signUpUser(user)" ng-disabled="!loginForm.$valid" value="Save" />
+    <input type="button" class="btn btn-primary" ng-click="signupCtrl.resetForm()" value="Reset" />
+    <input type="submit" class="btn btn-primary" ng-click="signupCtrl.signUpUser(user)" ng-disabled="!loginForm.$valid" value="Save" />
   </form>
 </div>
