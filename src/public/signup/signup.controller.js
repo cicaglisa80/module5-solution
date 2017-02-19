@@ -12,24 +12,20 @@ function SignupController(UserPreferenceService, MenuService) {
 
   $ctrl.signUpUser = function (user)
   {
-    console.log('user to save: ', user);
+    //console.log('user to save: ', user);
     $ctrl.nameNotFound = false;
 
     var promise = MenuService.searchByShortName(user.shortname);
 
     promise.then(function (response) {
-      console.log('response ', response);
-      var isFound = response.length > 0;
+      //console.log('response ', response);
 
-      if (isFound) {
-        $ctrl.isUserSaved = true;
-        UserPreferenceService.setUserPreference(user, response[0]);
-      } else {
-        $ctrl.nameNotFound = true;
-      }
+      $ctrl.isUserSaved = true;
+      UserPreferenceService.setUserPreference(user, response);
     })
     .catch(function (error) {
-      console.log(error);
+      //console.log('error ', error);
+      $ctrl.nameNotFound = true;
     })
   };
 }

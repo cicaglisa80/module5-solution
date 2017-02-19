@@ -4,24 +4,24 @@
 angular.module('common')
 .service('MenuService', MenuService);
 
-MenuService.$inject = ['$http', 'ApiPath'];
-function MenuService($http, ApiPath) {
+MenuService.$inject = ['$http', '$q', 'ApiPath'];
+function MenuService($http, $q, ApiPath) {
   var service = this;
   var selectedDish = null;
 
   service.searchByShortName = function (shortName) {
    var response = $http({
      method: "GET",
-     url: (ApiPath + "/menu_items.json")
+     url: (ApiPath + "/menu_items/" + shortName + ".json")
    })
-   .then(function (result) {
-     console.log('here with result ', result);
-     var result = result.data.menu_items.filter(x => x.short_name === shortName);
-     if (result.length > 0) {
-       selectedDish = result[0];
-     }
-     console.log('result ', result);
-     return result;
+   .then(function (response) {
+     console.log('here with result ', response.data);
+
+     return response.data;
+   })
+   .catch(function(data, status) {
+     console.log('error ', data);
+     return $q.reject(status);
    });
 
    return response;
