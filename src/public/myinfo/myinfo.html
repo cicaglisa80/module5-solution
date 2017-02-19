@@ -1,7 +1,20 @@
-<div>
+<div ng-if="myinfoCtrl.isUserRegisterd">
     <label>First Name: {{ myinfoCtrl.user.firstname }}</label><br />
     <label>Last Name: {{ myinfoCtrl.user.lastname }}</label><br />
     <label>E-mail: {{ myinfoCtrl.user.email }}</label><br />
     <label>Phone: {{ myinfoCtrl.user.phone }}</label><br />
-    <label>Menu Number: {{ myinfoCtrl.user.menunumber }}</label><br />
+    <label>Menu Number: {{ myinfoCtrl.user.shortname }}</label><br />
+
+    <div>
+        <div class="category-tile">
+          <img width="200" height="200" src="images/menu/{{myinfoCtrl.user.dish.short_name}}/{{myinfoCtrl.user.dish.short_name}}.jpg" alt="{{myinfoCtrl.user.dish.name}}">
+          <span>{{myinfoCtrl.user.dish.name}}</span>
+        </div>
+    </div>
+
+</div>
+<div ng-if="!myinfoCtrl.isUserRegisterd">
+  <span>Not Signed Up Yet.</span>
+  <br/>
+  <a ui-sref="public.signup"><br class="hidden-xs">Sign up Now!</a>
 </div>
