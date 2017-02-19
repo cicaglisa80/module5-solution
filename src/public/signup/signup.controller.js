@@ -7,7 +7,7 @@ angular.module('public')
 SignupController.$inject = ['UserPreferenceService', 'MenuService'];
 function SignupController(UserPreferenceService, MenuService) {
   var $ctrl = this;
-  $ctrl.isUserSaved = false;
+  $ctrl.isUserSaved = UserPreferenceService.getUserPreference() !== null;
   $ctrl.nameNotFound = false;
 
   $ctrl.signUpUser = function (user)
