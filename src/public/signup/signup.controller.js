@@ -4,8 +4,8 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-SignupController.$inject = ['$scope'];
-function SignupController($scope) {
+SignupController.$inject = ['$scope', 'UserPreferenceService'];
+function SignupController($scope, UserPreferenceService) {
   var $ctrl = this;
 
   $ctrl.resetForm = function ()
@@ -17,6 +17,7 @@ function SignupController($scope) {
   $ctrl.signUpUser = function (user)
   {
     console.log('user ', user);
+    UserPreferenceService.setUserPreference(user);
   };
 }
 
