@@ -1,0 +1,11 @@
+<div>
+  <form name="loginForm" novalidate>
+    <label>First Name: <input class="form-control" type="text" ng-model="user.firstname" required /></label><br />
+    <label>Last Name: <input class="form-control"  type="text" ng-model="user.lastname" required /></label><br />
+    <label>E-mail: <input class="form-control"  type="email" ng-model="user.email" required /></label><br />
+    <label>Phone: <input class="form-control"  type="text" ng-model="user.phone" required /></label><br />
+    <label>Menu Number: <input class="form-control"  type="text" ng-model="user.menunumber" /></label><br />
+    <input type="button" class="btn btn-primary" ng-click="resetForm()" value="Reset" />
+    <input type="submit" class="btn btn-primary" ng-click="signUpUser(user)" ng-disabled="!loginForm.$valid" value="Save" />
+  </form>
+</div>
